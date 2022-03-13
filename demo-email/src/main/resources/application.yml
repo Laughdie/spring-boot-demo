@@ -1,0 +1,23 @@
+spring:
+  mail:
+    host: smtp.exmail.qq.com
+    port: 465
+    username: zhouc@jet-voice.com
+    # 使用 jasypt 加密密码，使用com.xkcoding.email.PasswordTest.testGeneratePassword 生成加密密码，替换 ENC(加密密码)
+#    password: ENC(Uq5K0JKtt4fTYi6+04FkK2MjiFNiM//KcmDZBjmAmyI=)
+    # password: 不是邮箱登录密码, 是第三方提供的授权码
+    password: eEvQCS8beYd6h4a5
+    protocol: smtp
+    # test-connection 是否在启动时测试邮件服务器是否可用
+    test-connection: false
+    default-encoding: UTF-8
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.enable: true
+      mail.display.sendmail: JetVoice
+# 为 jasypt 配置解密秘钥
+jasypt:
+  encryptor:
+    password: JetVoice
