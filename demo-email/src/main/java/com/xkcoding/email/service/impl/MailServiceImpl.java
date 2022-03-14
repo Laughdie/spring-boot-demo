@@ -40,7 +40,7 @@ public class MailServiceImpl implements MailService {
     @Override
     public void sendSimpleMail(String to, String subject, String content, String... cc) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(from);
+        message.setFrom("测试邮件<" + from + ">");
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
@@ -63,7 +63,7 @@ public class MailServiceImpl implements MailService {
     public void sendHtmlMail(String to, String subject, String content, String... cc) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setFrom(from);
+        helper.setFrom("测试邮件<" + from + ">");
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(content, true);
@@ -88,7 +88,7 @@ public class MailServiceImpl implements MailService {
         MimeMessage message = mailSender.createMimeMessage();
 
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setFrom(from);
+        helper.setFrom("测试邮件<" + from + ">");
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(content, true);
@@ -118,7 +118,7 @@ public class MailServiceImpl implements MailService {
         MimeMessage message = mailSender.createMimeMessage();
 
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setFrom(from);
+        helper.setFrom("测试邮件<" + from + ">");
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(content, true);
