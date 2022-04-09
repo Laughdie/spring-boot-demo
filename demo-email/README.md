@@ -107,11 +107,11 @@ jasypt:
 @Primary
 public JavaMailSenderImpl getJavaMailConfigPrimary() {
     JavaMailSenderImpl mail = new JavaMailSenderImpl();
-    mail.setPort(mailProperties.getPort());
-    mail.setHost(mailProperties.getHost());
-    mail.setUsername(mailProperties.getUsername());
-    mail.setPassword(mailProperties.getPassword());
-    mail.setProtocol(mailProperties.getProtocol());
+    mail.setPort("465");
+    mail.setHost("smtp.mxhichina.com");
+    mail.setUsername("spring-boot-demo@xkcoding.com");
+    mail.setPassword("邮件服务器生成的授权密钥, 不是登录邮箱的密码");
+    mail.setProtocol("smtp");
     mail.setDefaultEncoding("UTF-8");
     Properties javaMailProperties = new Properties();
     javaMailProperties.setProperty("mail.smtp.auth", "true");
