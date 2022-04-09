@@ -101,6 +101,28 @@ jasypt:
 
 ```
 
+## 也可通过 Configure 替代 yaml 配置
+```
+@Bean
+@Primary
+public JavaMailSenderImpl getJavaMailConfigPrimary() {
+    JavaMailSenderImpl mail = new JavaMailSenderImpl();
+    mail.setPort(mailProperties.getPort());
+    mail.setHost(mailProperties.getHost());
+    mail.setUsername(mailProperties.getUsername());
+    mail.setPassword(mailProperties.getPassword());
+    mail.setProtocol(mailProperties.getProtocol());
+    mail.setDefaultEncoding("UTF-8");
+    Properties javaMailProperties = new Properties();
+    javaMailProperties.setProperty("mail.smtp.auth", "true");
+    javaMailProperties.setProperty("mail.smtp.starttls.enable", "true");
+    javaMailProperties.setProperty("mail.smtp.starttls.required", "true");
+    javaMailProperties.setProperty("mail.smtp.ssl.enable", "true");
+    mail.setJavaMailProperties(javaMailProperties);
+    return mail;
+}
+```
+
 ## MailService.java
 
 ```java
